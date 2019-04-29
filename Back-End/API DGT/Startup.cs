@@ -33,9 +33,7 @@ namespace API_DGT
                 .AddJsonOptions(
                     options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
-            services.AddDbContext<EntidadesDbContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("localdb"));
-            });
+            services.AddDbContext<EntidadesDbContext>();
             services.AddScoped<IGenericDA<Auto>, GenericDA<Auto>>(
                     sp => new GenericDA<Auto>(() => sp.GetService<EntidadesDbContext>()));
             services.AddScoped<IGenericDA<Automovilista>, GenericDA<Automovilista>>(

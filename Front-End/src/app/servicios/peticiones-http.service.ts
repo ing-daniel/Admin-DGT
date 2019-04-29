@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Auto } from '../modelos/auto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { Auto } from '../modelos/auto';
 export class PeticionesHttpService {
 
   private header: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json;charset=utf-8' });
-  readonly url = 'https://localhost:44307/api/';
+  
+  readonly url = environment.urlApi;
 
   constructor(private http: HttpClient) { }
 
