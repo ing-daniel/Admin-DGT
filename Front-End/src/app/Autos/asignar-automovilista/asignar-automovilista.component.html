@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+  <div class="4">
+    <button mat-flat-button color="primary" (click)="showByAuto()" class="mr-2">
+        <mat-icon>directions_car</mat-icon> Relaciones por auto
+    </button>
+    <button mat-flat-button color="primary" (click)="showByConductor()">
+        <mat-icon>supervisor_account</mat-icon> Relaciones por condutor
+    </button>
+  </div>
+</div>
+
+<form #Formulario="ngForm" class="mt-3">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <mat-form-field class="full-with">
+        <input type="text" placeholder="Auto" [(ngModel)]="autoSeleccionado" aria-label="Matriculas" matInput
+          [formControl]="controlAuto" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayAuto">
+          <mat-option *ngFor="let automovil of filteredAutos | async" [value]="automovil">
+            <span>{{automovil.matricula}}</span> |
+            <small>Modelo: {{automovil.modelo}}</small> |
+            <small>Marca: {{automovil.marca}}</small>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="full-with">
+        <input type="text" placeholder="Conductor" [(ngModel)]="conductorSeleccionado" aria-label="Automovilista"
+          matInput [formControl]="controlConductor" [matAutocomplete]="auto2">
+        <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayConductor">
+          <mat-option *ngFor="let conductor of filteredConductor | async" [value]="conductor">
+            <span>{{conductor.nombre + ' ' + conductor.apellidos}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </div>
+  </div>
+</form>
+
+<div class="row justify-content-center">
+  <div class="4">
+    <button mat-flat-button color="primary" (click)="save()">
+        <mat-icon>plus_one</mat-icon> Agregar Relacion  
+    </button>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-5" *ngIf="mostrarTable">
+  <div class="12">
+    <generic-list [TableGeneric]="tableGeneric"></generic-list>
+  </div>
+</div>

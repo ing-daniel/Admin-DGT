@@ -1,0 +1,50 @@
+<div class="row">
+
+  <div class="col-12">
+    <button mat-mini-fab (click)="atras()" color="primary" class="back-button" *ngIf="!esPrimeraVez && TableGeneric.mostrarBtnAtras">
+      <mat-icon aria-label="Back">arrow_back</mat-icon>
+    </button>
+    <sin-datos *ngIf="!esPrimeraVez && !mostrarTabla"></sin-datos>
+
+    <h1 *ngIf="!esPrimeraVez && mostrarTabla" class="titulo">{{TableGeneric.tituloLista}}</h1>
+    <table *ngIf="!esPrimeraVez && mostrarTabla" #table mat-table [dataSource]="TableGeneric.listado" class="mat-elevation-z8" style="width: 100%">
+      <ng-container *ngIf="TableGeneric.mostrarOpciones">
+        <ng-container matColumnDef="opciones" >
+          <th mat-header-cell *matHeaderCellDef> Opciones </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="[TableGeneric.rutasHTML.editar, element.id]">
+                <mat-icon>mode_edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button mat-menu-item (click)="delete(element.id)">
+                <mat-icon>delete_forever</mat-icon>
+                <span>Eliminar</span>
+              </button>
+              <ng-container *ngFor="let accion of TableGeneric.acciones; let index = index">
+                  <button mat-menu-item [routerLink]="[accion.ruta, (accion.agregarId ? element.id: '')]">
+                    <mat-icon>{{accion.icono}}</mat-icon>
+                    <span>{{accion.descripcion}}</span>
+                  </button>
+              </ng-container>
+            </mat-menu>
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngFor="let columna of TableGeneric.titulos; let index = index">
+        <ng-container matColumnDef="{{TableGeneric.columnas[index + (TableGeneric.mostrarOpciones ? 1 : 0) ]}}">
+          <th mat-header-cell *matHeaderCellDef> {{columna}}</th>
+          <td mat-cell *matCellDef="let element"> {{element[TableGeneric.columnas[index  + (TableGeneric.mostrarOpciones ? 1 : 0) ]]}} </td>
+        </ng-container>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="TableGeneric.columnas"></tr>
+      <tr  mat-row  *matRowDef="let row; columns: TableGeneric.columnas;"></tr>
+    </table>
+
+  </div>
+</div>

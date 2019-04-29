@@ -1,0 +1,22 @@
+<form #Formulario="ngForm">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <mat-form-field class="full-with">
+        <input matInput [(ngModel)]="elemento.descripcion" name="descripcion" placeholder="Descripción">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-with">
+        <input matInput [(ngModel)]="elemento.puntosMenos" name="puntosMenos" placeholder="Puntos a descontar" type="number">
+      </mat-form-field>
+
+    </div>
+  </div>
+</form>
+
+<div class="row justify-content-center">
+  <div class="4">
+    <button mat-flat-button color="primary" (click)="save()" class="mr-5">Guardar</button>
+    <button mat-stroked-button color="warn" [routerLink]="['/' + controlador]">Cancelar</button>
+  </div>
+</div>

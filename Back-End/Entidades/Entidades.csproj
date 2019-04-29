@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190418062802_Inicial.cs" />
+    <Compile Remove="Migrations\20190418063323_Inicial.cs" />
+    <Compile Remove="Migrations\20190418063836_Inicial.cs" />
+    <Compile Remove="Migrations\20190423005338_Add_NewID.cs" />
+    <Compile Remove="Migrations\20190423050237_cambio-id-guid.cs" />
+    <Compile Remove="Migrations\20190423050908_inicial.cs" />
+    <Compile Remove="Migrations\20190423061119_inicial.cs" />
+    <Compile Remove="Migrations\20190423214010_inicial.cs" />
+    <Compile Remove="Migrations\20190427004541_Inicial.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+  </ItemGroup>
+
+</Project>

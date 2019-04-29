@@ -1,0 +1,26 @@
+<form #Formulario="ngForm">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <mat-form-field class="full-with">
+        <input matInput [(ngModel)]="elemento.nombre" name="nombre" placeholder="Nombre">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-with">
+        <input matInput [(ngModel)]="elemento.apellidos" name="apellidos" placeholder="Apellidos">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-with">
+        <input matInput [(ngModel)]="elemento.puntos" name="puntos" placeholder="Puntos" type="number">
+      </mat-form-field>
+
+    </div>
+  </div>
+</form>
+
+<div class="row justify-content-center">
+  <div class="4">
+    <button mat-flat-button color="primary" (click)="save()" class="mr-5">Guardar</button>
+    <button mat-stroked-button color="warn" [routerLink]="['/' + controlador]">Cancelar</button>
+  </div>
+</div>

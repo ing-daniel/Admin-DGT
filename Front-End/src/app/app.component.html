@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button class="btn-menu" [routerLink]="['']">
+      <span>Admin DGT</span>
+    </button>
+    
+    <mat-menu #menuAutos="matMenu">
+      <button mat-menu-item [routerLink]="['Autos']">Listado de Autos</button>
+      <button mat-menu-item [routerLink]="['Autos/Nuevo']">Nuevo Auto</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuAutos" class="btn-menu">
+      <mat-icon>directions_car</mat-icon> Autos
+    </button>
+
+    <mat-menu #menuAutomovilistas="matMenu">
+      <button mat-menu-item [routerLink]="['Automovilistas']">Lista de Automovilistas</button>
+      <button mat-menu-item [routerLink]="['Automovilistas/Nuevo']">Nuevo Automovilistas</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuAutomovilistas" class="btn-menu">
+      <mat-icon>supervisor_account</mat-icon> Automovilistas
+    </button>
+
+    <mat-menu #menuMultas="matMenu">
+      <button mat-menu-item [routerLink]="['Multas']">Listado de Multas</button>
+      <button mat-menu-item [routerLink]="['Multas/Nueva']">Nueva Multa</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuMultas" class="btn-menu">
+      <mat-icon>receipt</mat-icon> Multas
+    </button>
+
+    <mat-menu #menuOpciones="matMenu">
+      <button mat-menu-item [routerLink]="['Operaciones/Asignacion']">Asignacion de Autos y Conductores</button>
+      <button mat-menu-item [routerLink]="['Operaciones/Multa']">Generar Multa</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuOpciones" class="btn-menu">
+      <mat-icon>arrow_drop_down_circle</mat-icon> Operaciones
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container pt-5">
+  <router-outlet></router-outlet>
+</div>
+
+<loading></loading>
+
+
