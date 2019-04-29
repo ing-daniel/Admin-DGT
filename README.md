@@ -28,5 +28,5 @@ Front-End
 4 - Ejecutar el comando "npm install"
 5 - Abrir el archivo "environment.dev" con el IDE seleccionado ubicado dentro de la carpeta "src" > "environments"
 6 - Actualizar la variable "urlApi" con la ruta de la API que genero el Visual Studio 
-7 - Ejecutar el comando "ng serve"
+7 - Ejecutar el comando "ng serve -c dev"
 8 - Abrirl la ruta "http://localhost:4200/" en el explorador de preferencia 
